@@ -1,24 +1,42 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
+import Editor from "@monaco-editor/react";
+import testRules from "./testRules";
 
 function App() {
+
+  const [fileName, setFileName] = useState("rule1.yaml");
+
+  const rule = testRules[fileName];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <button
+        disabled={fileName === "rule1.yaml"}
+        onClick={() => setFileName("rule1.yaml")}
+      >
+        rule1.yaml
+      </button>
+      <button
+        disabled={fileName === "rule2.yaml"}
+        onClick={() => setFileName("rule2.yaml")}
+      >
+        rule2.yaml
+      </button>
+      <button
+        disabled={fileName === "rule3.yaml"}
+        onClick={() => setFileName("rule3.yaml")}
+      >
+        rule3.yaml
+      </button>
+      <Editor
+        height="80vh"
+        theme="vs-dark"
+        path={rule.name}
+        defaultLanguage="yaml"
+        defaultValue={rule.value}
+      />
+    </>
   );
 }
 
