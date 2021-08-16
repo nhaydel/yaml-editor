@@ -1,12 +1,12 @@
-import React, { useState } from "react";
 import './App.css';
-import Editor from "@monaco-editor/react";
-import testRules from "./testRules";
+import React, { useState } from "react";
+import Editor from "./Editor";
+import { testRules, ruleSchema } from "./testRules";
+
 
 function App() {
 
   const [fileName, setFileName] = useState("rule1.yaml");
-
   const rule = testRules[fileName];
 
   return (
@@ -29,13 +29,7 @@ function App() {
       >
         rule3.yaml
       </button>
-      <Editor
-        height="80vh"
-        theme="vs-dark"
-        path={rule.name}
-        defaultLanguage="yaml"
-        defaultValue={rule.value}
-      />
+      <Editor schema={ruleSchema} value={rule.value} width={800} height={600} />
     </>
   );
 }

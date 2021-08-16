@@ -1,3 +1,47 @@
+const ruleSchema =
+{
+    "id": "https://cdisc.org/rules/1-0",
+    "type": "object",
+    "description": "Validation schema CDISC Rules 1.0",
+    "properties": {
+        "CoreId": {
+            "type": "string"
+        },
+        "Version": {
+            "type": "string"
+        },
+        "Authority": {
+            "type": "object",
+            "properties": {
+                "Organization": { "type": "string" }
+            },
+            "additionalProperties": false
+        },
+        "Reference": {
+            "type": "string"
+        },
+        "Description": {
+            "type": "string"
+        },
+        "Sensitivity": {
+            "type": "string"
+        },
+        "Scopes": {
+            "type": "string"
+        },
+        "Rule Type": {
+            "type": "string"
+        },
+        "Outcome": {
+            "type": "string"
+        },
+        "Citations": {
+            "type": "string"
+        }
+    },
+    "additionalProperties": false
+};
+
 const rule1 = `
 CoreId: Rule271828
 Version: 1
@@ -115,7 +159,7 @@ const testRules = {
     },
 };
 
-export default testRules;
+export { testRules, ruleSchema };
 
 
 
