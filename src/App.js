@@ -29,7 +29,7 @@ function App() {
       >
         rule3.yaml
       </button>
-      <Editor schema={ruleSchema} value={rule.value} width={800} height={600} />
+      <Editor schema={ruleSchema} value={rule.value} width={800} height={900} />
     </>
   );
 }
